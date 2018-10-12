@@ -8,6 +8,7 @@ The Basic Max patch can be placed in a folder with an audio file. That file will
 <img src="http://web.colby.edu/noisemakers/files/2018/10/documentation1.png" alt="Playing the sound file">
 
 <img src="http://web.colby.edu/noisemakers/files/2018/10/documentation2.png" alt="Adding frequency and pitch shift controls">
+N.B. Timeshifting (i.e., keeping the pitch from changing with speed) can also be applied via the Inspector.)
 
 <img src="http://web.colby.edu/noisemakers/files/2018/10/documentation3.png" alt="Smoothing things out with a little math">
 
