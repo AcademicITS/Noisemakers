@@ -16,7 +16,7 @@ N.B. Timeshifting (i.e., keeping the pitch from changing with speed) can also be
 
 <b>The Arduino Controller</b>
 <br />
-The Arduino controller should be wired so that the button is connected to digital input pin 2 and the pots are connected to analog input pins A0 and A1 (the inputs for the basic Max patch should then be changed to :
+The Arduino controller should be wired so that the button is connected to digital input pin 2 and the pots are connected to analog input pins A0 and A1 (the inputs for the basic Max patch should then be changed to 36 for the button and 1 and 2 for the pots):
 
 <img src="http://web.colby.edu/noisemakers/files/2018/10/IMG_1692.jpg">
 
