@@ -3,7 +3,7 @@ This repository contains all of the code we used to create the various projects 
 
 <b>The Basic Max Patch</b>
 <br />
-The Basic Max patch was designed to work with a Novation Launch Control. It can be placed in a folder with an audio file. That file will then need to be added and named in the patch's buffer object (upper left), and the name will need to be added to the groove object at the bottom of the patch. Here is how it works:
+The Basic Max patch was designed to work with a Novation Launch Control (it is mapped to the first column of the device). It can be placed in a folder with an audio file. That file will then need to be added and named in the patch's buffer object (upper left), and the name will need to be added to the groove object at the bottom of the patch. Here is how it works:
 
 <img src="http://web.colby.edu/noisemakers/files/2018/10/documentation1.png" alt="Playing the sound file">
 
