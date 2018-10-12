@@ -1,0 +1,155 @@
+#include <MIDI.h>
+
+/******************************************************************************
+Mux_Analog_Input
+SparkFun Multiplexer Analog Input Example
+Jim Lindblom @ SparkFun Electronics
+August 15, 2016
+https://github.com/sparkfun/74HC4051_8-Channel_Mux_Breakout
+
+This sketch demonstrates how to use the SparkFun Multiplexer
+Breakout - 8 Channel (74HC4051) to read eight, separate
+analog inputs, using just a single ADC channel.
+
+Hardware Hookup:
+Mux Breakout ----------- Arduino
+     S0 ------------------- 2
+     S1 ------------------- 3
+     S2 ------------------- 4
+     Z -------------------- A0
+    VCC ------------------- 5V
+    GND ------------------- GND
+    (VEE should be connected to GND)
+
+The multiplexers independent I/O (Y0-Y7) can each be wired
+up to a potentiometer or any other analog signal-producing
+component.
+
+Development environment specifics:
+Arduino 1.6.9
+SparkFun Multiplexer Breakout - 8-Channel(74HC4051) v10
+(https://www.sparkfun.com/products/13906)
+******************************************************************************/
+/////////////////////
+// Pin Definitions //
+/////////////////////
+const int selectPins[3] = {2, 3, 4}; // S0~2, S1~3, S2~4
+const int selectPins2[3] = {5, 6, 7}; //added for multiplex 2
+const int selectPins3[3] = {8, 9, 10}; //added for multiplex 3
+const int zOutput = 5; 
+const int zInput = A0; // Connect common (Z) to A0 (analog input)
+const int zInput2 = A1; //added for multiplex 2
+const int zInput3 = A2; //added for multiplex 3
+
+int count = 0;   //which y pin we are selecting
+int val[24]; //Our initial pot values. We need one for the first value and a second to test if there has been a change made. This needs to be done for all 3 pots.
+
+void setup() 
+{
+  Serial.begin(9600); // Initialize the serial port
+  // Set up the select pins as outputs:
+  for (int i=0; i<3; i++)
+  {
+    pinMode(selectPins[i], OUTPUT);
+    pinMode(selectPins2[i], OUTPUT); //added for multiplex 2
+    pinMode(selectPins3[i], OUTPUT); //added for multiplex 3
+    digitalWrite(selectPins[i], HIGH);
+    digitalWrite(selectPins2[i], HIGH); //added for multiplex 2
+    digitalWrite(selectPins3[i], HIGH); //added for multiplex 3
+  }
+  pinMode(zInput, INPUT); // Set up Z as an input
+  pinMode(zInput2, INPUT);
+  pinMode(zInput3, INPUT);
+
+  // Print the header:
+  Serial.println("Y0\tY1\tY2\tY3\tY4\tY5\tY6\tY7");
+  Serial.println("---\t---\t---\t---\t---\t---\t---\t---");
+}
+
+void loop() 
+{
+  // Loop through all eight pins.
+  for (byte pin=0; pin<=7; pin++)
+  {
+    selectMuxPin(pin); // Select one at a time
+    int inputValue = analogRead(A0); // and read Zint inputValue = analogRead(A0); // and read Z
+    //Serial.println(inputValue);
+    
+    val[pin] = inputValue/8;
+    MIDIsend(176,pin,val[pin]);
+ 
+  }
+
+  //added for multiplex 2
+  for (byte pin=0; pin<=7; pin++)
+  {
+    selectMuxPin2(pin); // Select one at a time
+    int inputValue = analogRead(A1); // and read Zint inputValue = analogRead(A0); // and read Z
+    //Serial.println(inputValue);
+    
+    val[(pin+8)] = inputValue/8;
+    MIDIsend(176,(pin+8),val[(pin+8)]);
+ 
+  }
+
+  //added for multiplex 3
+  for (byte pin=0; pin<=7; pin++)
+  {
+    selectMuxPin3(pin); // Select one at a time
+    int inputValue = analogRead(A2); // and read Zint inputValue = analogRead(A0); // and read Z
+    //Serial.println(inputValue);
+    
+    val[(pin+16)] = inputValue/8;
+    MIDIsend(176,(pin+16),val[(pin+16)]);
+ 
+  }
+  
+  Serial.println();
+  delay(1000);
+}
+
+// Thdelaye selectMuxPin function sets the S0, S1, and S2 pins
+// accordingly, given a pin from 0-7.
+void selectMuxPin(byte pin) 
+{
+  for (int i=0; i<3; i++)
+  {
+    if (pin & (1<<i))
+      digitalWrite(selectPins[i], HIGH);
+    else
+      digitalWrite(selectPins[i], LOW);
+  }
+}
+
+// Thdelaye selectMuxPin function sets the S0, S1, and S2 pins
+// accordingly, given a pin from 0-7.
+void selectMuxPin2(byte pin) 
+{
+  for (int i=0; i<3; i++)
+  {
+    if (pin & (1<<i))
+      digitalWrite(selectPins2[i], HIGH);
+    else
+      digitalWrite(selectPins2[i], LOW);
+  }
+}
+
+// Thdelaye selectMuxPin function sets the S0, S1, and S2 pins
+// accordingly, given a pin from 0-7.
+void selectMuxPin3(byte pin) 
+{
+  for (int i=0; i<3; i++)
+  {
+    if (pin & (1<<i))
+      digitalWrite(selectPins3[i], HIGH);
+    else
+      digitalWrite(selectPins3[i], LOW);
+  }
+  delay(10); //here we add a short delay to help prevent slight fluctuations, knocks on the pots etc. Adding this helped to prevent my pots from jumpin up or down a value when slightly touched or knocked.
+}
+void MIDIsend(byte command, byte data1, byte data2) //pass values out through standard Midi Command
+{
+   Serial.write(command);
+   Serial.write(data1);
+   Serial.write(data2);
+}
