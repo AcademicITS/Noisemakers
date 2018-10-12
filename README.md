@@ -5,17 +5,18 @@ This repository contains all of the code we used to create the various projects 
 <br />
 The Basic Max patch was designed to work with a Novation Launch Control (it is mapped to the first column of the device). It can be placed in a folder with an audio file. That file will then need to be added and named in the patch's buffer object (upper left), and the name will need to be added to the groove object at the bottom of the patch. Here is how it works:
 
-Playing the sound file
+<i>Playing the sound file</i>
 <img src="http://web.colby.edu/noisemakers/files/2018/10/documentation1.png" alt="Playing the sound file">
 
-Adding frequency and pitch shift control
-N.B. Timeshifting (i.e., keeping the pitch from changing with speed) can also be applied to the Groove object via the Inspector.)
+<i>Adding frequency and pitch shift control
+<br />
+N.B. Timeshifting (i.e., keeping the pitch from changing with speed) can also be applied to the Groove object via the Inspector.)</i>
 <img src="http://web.colby.edu/noisemakers/files/2018/10/documentation2.png" alt="Adding frequency and pitch shift controls">
 
-Smoothing out the controller responses with a little math
+<i>Smoothing out the controller responses with a little math</i>
 <img src="http://web.colby.edu/noisemakers/files/2018/10/documentation3.png" alt="Smoothing things out with a little math">
 
-Simplifying the MIDI setup
+<i>Simplifying the MIDI setup</i>
 <img src="http://web.colby.edu/noisemakers/files/2018/10/FinalTouch.png" alt="Simplifying the MIDI setup">
 
 <b>The Arduino Controller</b>
