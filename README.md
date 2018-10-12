@@ -15,3 +15,6 @@ The Basic Max patch can be placed in a folder with an audio file. That file will
 
 <b>The Arduino Controller</b>
 <br />
+The Arduino controller should be wired so that the button is connected to digital input pin 2 and the pots are connected to analog input pins A0 and A1:
+
+<img src="http://web.colby.edu/noisemakers/files/2018/10/IMG_1692.jpg">
