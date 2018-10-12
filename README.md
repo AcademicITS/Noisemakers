@@ -18,3 +18,11 @@ The Basic Max patch can be placed in a folder with an audio file. That file will
 The Arduino controller should be wired so that the button is connected to digital input pin 2 and the pots are connected to analog input pins A0 and A1:
 
 <img src="http://web.colby.edu/noisemakers/files/2018/10/IMG_1692.jpg">
+
+Use <a href="http://projectgus.github.io/hairless-midiserial/">Hairless MIDI</a> as a bridge to get the MIDI output from the Arduino to Max via USB:
+
+<img src="http://web.colby.edu/noisemakers/files/2018/10/Patch.png">
+
+<b>The Waterville Map</b>
+<br />
+The Max patch is based on the basic patch above but adds reverb and panning to each loop.
