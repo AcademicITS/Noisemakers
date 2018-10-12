@@ -10,6 +10,6 @@ The Basic Max patch can be placed in a folder with an audio file. That file will
 
 <img src="http://web.colby.edu/noisemakers/files/2018/10/documentation3.png" alt="Smoothing things out with a little math">
 
-<img src=http://web.colby.edu/noisemakers/files/2018/10/FinalTouch.png" alt="Simplifying the MIDI setup">
+<img src="http://web.colby.edu/noisemakers/files/2018/10/FinalTouch.png" alt="Simplifying the MIDI setup">
 
 <b>The Arduino Controller</b>
