@@ -29,4 +29,4 @@ Use <a href="http://projectgus.github.io/hairless-midiserial/">Hairless MIDI</a>
 
 The Max patch is based on the basic patch above but adds reverb and panning to each loop.
 
-The basic Arduino program has been adatped so that we could use multiplexer (mux) boards to add additional input pins for the pots. These were then be combined into a single output from the mux board and wired into a single input on the Arduino. We are fairly certain there are still some bugs in the code that need to be squashed.
+The basic Arduino program has been adatped so that we could use multiplexer (mux) boards to add additional input pins for the pots. These were then combined into a single output from the mux board and wired into a single input on the Arduino. We are fairly certain there are still some bugs in the code that need to be squashed.
