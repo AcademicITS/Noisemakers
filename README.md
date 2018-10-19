@@ -1,5 +1,5 @@
 # Noisemakers
-This repository contains all of the code we used to create the various projects for Noisemakers! Tracing the Origins of Modern Music in Italy, including our Max MSP patches and C++ Arduino code.
+This repository contains all of the code we used to create the various projects for Noisemakers! Tracing the Origins of Modern Music in Italy, including our Max MSP (version 7) patches and C++ Arduino code.
 
 <b>The Basic Max Patch</b>
 <br />
